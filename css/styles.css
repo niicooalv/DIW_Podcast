@@ -1,1 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    color: #fff;
+}
+
+header {
+    
+    padding: 10px 20px;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin-left: 20px;
+}
+
+.menu a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background: url('/img/diseñoWebDegradado.png') no-repeat center center/cover;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #ffcc00;
+}
+
+.hero p {
+    font-size: 1.2rem;
+}
+
+.player {
+    margin-top: 20px;
+}
+
+.player .play {
+    background-color: #ffcc00;
+    border: none;
+    color: #121212;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.topics {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.topic {
+    text-align: center;
+    max-width: 200px;
+}
+
+.topic img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.topic h3 {
+    margin-top: 10px;
+    color: #ffcc00;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 20px;
+    color: #888;
+}
 
