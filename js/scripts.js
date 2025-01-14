@@ -4,13 +4,13 @@ function cambiarImagenFondo(ruta) {
     imagen.src = ruta;
 }
 
-function cambiarTitulo(titulo) { // cambiar titulo y subtitulo podcast
+function cambiarTitulo(titulo) { // cambiar titulo del podcast
     const tituloElement = document.getElementById("pod_titulo");
     tituloElement.innerHTML = titulo;
 
 }
 
-function cambiarDescripcion(descripcion) {
+function cambiarDescripcion(descripcion) { //cambiar descripción del podcast
     const descriptionElement = document.getElementById("pod_description");
     descripcionElement.innerHTML = descripcion;
 }
