@@ -1,22 +1,17 @@
 
-function cambiarImagenFondo(ruta) {
-    const imagen = document.getElementById("miImagen");
-    imagen.src = ruta;
+function cambiarImagenFondo() {
+    const images = document.querySelectorAll('.episodios img');
+    console.log(images);
+        images.forEach(image => {
+            image.addEventListener('mouseenter', () => {
+                const newBackground = image.getAttribute('data-background');
+                document.body.style.background = `url('${newBackground}') center/cover no-repeat`;
+            });
+
+            image.addEventListener('mouseleave', () => {
+                document.body.style.background = "url('../img/diseñoWebDegradado.png') center/cover no-repeat";
+            });
+        });
 }
 
-function cambiarTitulo(titulo) { // cambiar titulo y subtitulo podcast
-    const tituloElement = document.getElementById("pod_titulo");
-    tituloElement.innerHTML = titulo;
-
-}
-
-function cambiarDescripcion(descripcion) {
-    const descriptionElement = document.getElementById("pod_description");
-    descripcionElement.innerHTML = descripcion;
-}
-
-function seleccionarEpisodio(episodio) {
-   // cambiarImagenFondo(`img/${episodio}.jpg`); // se puede usar "img/${episodio}.jpg" siendo la variable episodio igual a episodio + el numero
-    cambiarImagenFondo(`img/episodio${episodio}.jpg`); // o usar identificar el episodio mediante un numero y usar "img/episodio${episodio}.jpg"
-    
-}
+cambiarImagenFondo();
