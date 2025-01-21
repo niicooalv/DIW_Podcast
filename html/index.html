@@ -12,16 +12,16 @@
             <ul class="menu">
                 <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
                 <li><a href="#video">Video</a></li>
-                <li><img src="../img/espana.png"></li>
-                <li><img src="../img/galicia.png"></li>
+                <li onclick="cambiarIdioma('es')"><img src="../img/espana.png" alt="Español"></li>
+                <li onclick="cambiarIdioma('gal')"><img src="../img/galicia.png" alt="Gallego"></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section class="principal">
-            <h1>¡ESCUCHALO AHORA!</h1>
-            <p>Todo lo que necesitas saber sobre diseño web.</p>
+            <h1 id="pod_titulo">-</h1>
+            <p id="pod_description">-</p>
             <div class="reproductor">
                 <button class="play">▶</button>
                 <span>Reproducir</span>
@@ -40,6 +40,8 @@
             </div>
         </section>
     </main>
+
+    <script src="/js/scripts.js" defer></script>
 
     <footer>
         <p>Podcast CSS Moderno &copy; 2025</p>

@@ -1,6 +1,6 @@
 //
-const idiomaWeb = "es";
-document.documentElement.lang = idiomaInicial;
+let idiomaWeb = "es";
+document.documentElement.lang = idiomaWeb;
 
 document.addEventListener('DOMContentLoaded', () => {
     seleccionarEpisodio(1);
@@ -14,7 +14,7 @@ const episodios = [
             titulo: "Episodio 1: Ayuda",
             descripcion: "Ayuda sacadme de aqui."
         },
-        en: {
+        gal: {
             titulo: "Help me please",
             descripcion: "Help."
         }
@@ -25,7 +25,7 @@ const episodios = [
             titulo: "Episodio 2: Descubriendo CSS",
             descripcion: "CSS"
         },
-        en: {
+        gal: {
             titulo: "Episode 2: Discovering CSS",
             descripcion: "CSS"
         }
@@ -36,7 +36,7 @@ const episodios = [
             titulo: "3.0 AYuda por favor",
             descripcion: "Ayuda por favor"
         },
-        en: {
+        gal: {
             titulo: "3.0 Help me please",
             descripcion: "Help me please"
         }
@@ -52,7 +52,7 @@ function cambiarTitulo(titulo) { // cambiar titulo del podcast
 }
 
 function cambiarDescripcion(descripcion) { //cambiar descripción del podcast
-    const descriptionElement = document.getElementById("pod_description");
+    const descripcionElement = document.getElementById("pod_description");
     descripcionElement.innerHTML = descripcion;
 }
 
@@ -68,8 +68,14 @@ function seleccionarEpisodio(episodioId) {
         cambiarTitulo(episodio.es.titulo);
         cambiarDescripcion(episodio.es.descripcion);
     } else {
-        cambiarTitulo(episodio.en.titulo);
-        cambiarDescripcion(episodio.en.descripcion);
+        cambiarTitulo(episodio.gal.titulo);
+        cambiarDescripcion(episodio.gal.descripcion);
     }
 }
 
+function cambiarIdioma(idioma) {
+    idiomaWeb = idioma;
+    document.documentElement.lang = idiomaWeb;
+    console.log(idiomaWeb + "Selccionado");
+    seleccionarEpisodio(1);
+}
