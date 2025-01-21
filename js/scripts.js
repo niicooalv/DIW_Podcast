@@ -59,32 +59,20 @@ const elementosComunes = [
     },
 ];
 
-// Función para obtener los elementos comunes y subtítulos del episodio según el idioma
-function obtenerElementosPorIdioma(idioma, episodioId) {
+// Función para obtener los elementos según el idioma
+function obtenerElementosPorIdioma(idioma) {
     const idiomaElementos = elementosComunes.find(e => e.idioma === idioma);
-    const episodio = episodios.find(e => e.id === parseInt(episodioId));
-
     if (!idiomaElementos) {
         console.error(`Idioma '${idioma}' no encontrado en elementosComunes.`);
         return null;
     }
-
-    if (!episodio) {
-        console.error(`Episodio con ID '${episodioId}' no encontrado.`);
-        return null;
-    }
-
-    const subtitulosEpisodio = idioma === "es" ? episodio.es : episodio.gal;
-
-    return {
-        elementosComunes: idiomaElementos,
-        subtitulosEpisodio: subtitulosEpisodio
-    };
+    return idiomaElementos;
 }
 
 // Variables globales
 let idiomaWeb = "es";
 let episodioMarcado = 1;
+const elementosIdioma = obtenerElementosPorIdioma(idiomaWeb);
 document.documentElement.lang = idiomaWeb;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -92,36 +80,36 @@ document.addEventListener('DOMContentLoaded', () => {
     seleccionarEpisodio(episodioMarcado);
 });
 
-// Función para cambiar la descripción
-function cambiarDescripcion(descripcion) {
-    const descripcionElement = document.getElementById("pod_description");
-    descripcionElement.innerHTML = descripcion;
-}
-
 // Función para cambiar el título
 function cambiarTitulo(titulo) {
     const tituloElement = document.getElementById("pod_titulo");
     tituloElement.innerHTML = titulo;
 }
 
+// Función para cambiar la descripción
+function cambiarDescripcion(descripcion) {
+    const descripcionElement = document.getElementById("pod_description");
+    descripcionElement.innerHTML = descripcion;
+}
+
 // Función para seleccionar un episodio
 function seleccionarEpisodio(episodioId) {
-    const { elementosComunes, subtitulosEpisodio } = obtenerElementosPorIdioma(idiomaWeb, episodioId);
-    if (!elementosComunes || !subtitulosEpisodio) return;
+    const episodio = episodios.find(e => e.id === parseInt(episodioId));
+    if (!episodio) {
+        console.error("Episodio no encontrado:", episodioId);
+        return;
+    }
 
-    document.body.style.background = `url('${episodios.find(e => e.id === episodioId).imagen}') center/cover no-repeat`;
 
-    cambiarTitulo(subtitulosEpisodio.titulo);
-    cambiarDescripcion(subtitulosEpisodio.descripcion);
+    document.body.style.background = `url('${episodio.imagen}') center/cover no-repeat`;
 
-    // Actualizar elementos comunes del idioma
-    const sobreNosotrosElement = document.getElementById("sobreNosotros");
-    const videoBotonElement = document.getElementById("videoBoton");
-    const reproducirBotonElement = document.getElementById("reproducirBoton");
-
-    sobreNosotrosElement.innerHTML = elementosComunes.sobreNosotros;
-    videoBotonElement.innerHTML = elementosComunes.videoBoton;
-    reproducirBotonElement.innerHTML = elementosComunes.reproducirBoton;
+    if (idiomaWeb === "es") {
+        cambiarTitulo(episodio.es.titulo);
+        cambiarDescripcion(episodio.es.descripcion);
+    } else {
+        cambiarTitulo(episodio.gal.titulo);
+        cambiarDescripcion(episodio.gal.descripcion);
+    }
 }
 
 // Función para cambiar el idioma
@@ -131,7 +119,18 @@ function cambiarIdioma(idioma) {
     console.log(idiomaWeb + " seleccionado");
 
     // Actualizar elementos del idioma
+    const idiomaElementos = obtenerElementosPorIdioma(idiomaWeb);
+    if (!idiomaElementos) return;
+
     seleccionarEpisodio(episodioMarcado);
+
+    const sobreNosotrosElement = document.getElementById("sobreNosotros");
+    const videoBotonElement = document.getElementById("videoBoton");
+    const reproducirBotonElement = document.getElementById("reproducirBoton");
+
+    sobreNosotrosElement.innerHTML = idiomaElementos.sobreNosotros;
+    videoBotonElement.innerHTML = idiomaElementos.videoBoton;
+    reproducirBotonElement.innerHTML = idiomaElementos.reproducirBoton;
 }
 
 // Función para cambiar el fondo al pasar el mouse sobre una imagen
