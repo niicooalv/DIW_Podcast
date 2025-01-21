@@ -10,8 +10,8 @@
     <header>
         <nav>
             <ul class="menu">
-                <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
-                <li><a href="#video">Video</a></li>
+                <li><a id="sobreNosotros" href="#sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a id="videoBoton" href="#video">Video</a></li>
                 <li onclick="cambiarIdioma('es')"><img src="../img/espana.png" alt="Español"></li>
                 <li onclick="cambiarIdioma('gal')"><img src="../img/galicia.png" alt="Gallego"></li>
             </ul>
@@ -24,14 +24,14 @@
             <p id="pod_description">-</p>
             <div class="reproductor">
                 <button class="play">▶</button>
-                <span>Reproducir</span>
+                <span id="reproducirBoton">Reproducir</span>
             </div>
         </section>
 
         <section class="episodios">
-                <img src="../img/diseñoWeb.png" alt="DiseñoWeb" data-background="../img/diseñoWebDegradado.png">
-                <img src="../img/javaScript.png" alt="JavaScript" data-background="../img/javaScriptDegradado.png">
-                <img src="../img/html.png" alt="HTML" data-background="../img/htmlDegradado.png">
+                <img src="../img/diseñoWeb.png" alt="DiseñoWeb" id="1">
+                <img src="../img/javaScript.png" alt="JavaScript" id="2">
+                <img src="../img/html.png" alt="HTML" id="3">
         </section>
     </main>
 
@@ -40,6 +40,6 @@
     <footer>
         <p>Podcast CSS Moderno &copy; 2025</p>
     </footer>
-    <script src="../js/scripts.js"></script>
+    <script type="module" src="../js/scripts.js"></script>
 </body>
 </html>
