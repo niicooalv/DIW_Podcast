@@ -3,6 +3,7 @@ body {
     background-color: black;
     color: white;
     background: url('../img/diseñoWebDegradado.png') no-repeat center center/cover;
+    transition: background 0.5s ease;
 }
 
 header {
@@ -70,24 +71,19 @@ header {
     padding: 20px;
 }
 
-.episodio {
-    text-align: center;
-    max-width: 200px;
-}
-
-.episodio img {
+.episodios img {
     width: 280px;
     border-radius: 10px;
     border: black solid 1px;
-}
-
-.episodio h3 {
-    margin-top: 10px;
-    color: #ffcc00;
+    transition: transform 0.3s ease;
 }
 
 footer {
     text-align:center;
     line-height: 80px;
     color: grey;
+}
+
+.episodios img:hover {
+    transform: scale(1.05);
 }
