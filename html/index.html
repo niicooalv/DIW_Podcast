@@ -1,23 +1,47 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Podcast CSS</title>
-        <link rel="stylesheet" href="/css/styles.css">
-        <script src = "/js/scripts.js"></script>
-    <body>
-        <section id="footer"> <!-- Footer Principal  -->
-            <p>Podcast Diseño Web</p> 
-            <ul class="button-list">
-                <li><a href="#" class="button">Ver</a></li>
-                <li><a href="#" class="button">Episodios</a></li>
-                <li><a href="#" class="button">Botón 3</a></li>
-                <li><a href="#" class="button">Botón 4</a></li>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Diseño Web</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="menu">
+                <li><a href="#sobre-nosotros">Sobre nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li><a href="#video">Video</a></li>
             </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="principal">
+            <h1>¡ESCUCHALO AHORA!</h1>
+            <p>Todo lo que necesitas saber sobre diseño web.</p>
+            <div class="reproductor">
+                <button class="play">▶</button>
+                <span>Reproducir</span>
+            </div>
         </section>
-        <h1 id="pod_titulo">Titulo</h1>
-        <h2 id="pod_descripcion">Texto 1</h2>
-        <img id="miImagen" src="../img/ESCUCHALO_AHORA.webp" alt="Imagen" width="300">
-    </body>
+
+        <section class="episodios">
+            <div class="episodio">
+                <img src="/img/diseñoWeb.png" alt="DiseñoWeb">
+            </div>
+            <div class="episodio">
+                <img src="/img/javaScript.png" alt="JavaScript">
+            </div>
+            <div class="episodio">
+                <img src="/img/html.png" alt="HTML">
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Podcast CSS Moderno &copy; 2025</p>
+    </footer>
+</body>
 </html>
