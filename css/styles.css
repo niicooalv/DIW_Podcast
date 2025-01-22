@@ -1,25 +1,32 @@
+/* General styles */
 body {
     font-family: Arial, sans-serif;
     background-color: black;
     color: white;
     background: url('../img/diseñoWebDegradado.png') no-repeat center center/cover;
-    transition: background 0.5s ease;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Mantiene toda la altura de la pantalla */
+    display: flex;
+    flex-direction: column;
 }
 
+/* Header */
 header {
     padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .menu {
-    display: flex;  
+    display: flex;
     justify-content: flex-end;
     list-style: none;
-    margin: 30px;
-    margin-right: 10px;
+    margin: 30px 10px 0 10px;
+    padding: 0;
 }
 
 .menu a {
-    margin-left: 30px;
+    margin-left: 20px;
     color: #ffcc00;
     text-decoration: none;
     font-weight: bold;
@@ -27,17 +34,29 @@ header {
 
 .menu img {
     margin: -10px;
-    margin-left: 30px;
+    margin-left: 20px;
     width: 40px;
 }
 
-.principal {
-    text-align: center;
-    padding: 50px 20px;
-    color: #ffcc00;
+/* Main content */
+main {
+    flex: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: center; /* Centra verticalmente el contenido */
+    align-items: center;
+    padding: 20px;
+}
+
+.principal {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Texto alineado a la derecha */
+    text-align: right; /* Ajusta el texto hacia la derecha */
+    color: #ffcc00;
+    margin-bottom: 30px;
+    width: 100%; /* Ocupa el ancho completo */
+    padding-right: 50px; /* Añade espacio del lado derecho */
 }
 
 .principal h1 {
@@ -47,49 +66,71 @@ header {
 
 .principal p {
     font-size: 1.2rem;
-    margin-right: 50px;
 }
 
 .reproductor {
     margin-top: 20px;
-    margin-right: 180px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end; /* Botón alineado a la derecha */
 }
 
 .reproductor .play {
-    background-color: #ffcc00; /* Color normal */
+    background-color: #ffcc00;
     border: none;
     color: white;
     font-size: 1.5rem;
     padding: 10px 20px;
-    cursor: pointer;
     border-radius: 5px;
-    transition: background-color 0.3s, cursor 0.3s;
+    cursor: pointer;
 }
 
-.reproductor .play:disabled {
-    background-color: #B0B0B0; /* Color gris */
-    cursor: not-allowed;
-}
-
+/* Episodes section */
 .episodios {
     display: flex;
-    justify-content: space-around;
+    justify-content: center; /* Centra las imágenes horizontalmente */
+    gap: 60px; /* Aumenta la separación entre las imágenes */
     padding: 20px;
+    width: 100%; /* Ajusta el contenedor al ancho completo */
 }
 
 .episodios img {
-    width: 280px;
+    width: 100%;
+    max-width: 200px;
     border-radius: 10px;
-    border: black solid 1px;
     transition: transform 0.3s ease;
-}
-
-footer {
-    text-align: center;
-    line-height: 80px;
-    color: grey;
+    cursor: pointer;
 }
 
 .episodios img:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffcc00;
+    font-size: 0.9rem;
+    margin-top: auto; /* Mantiene el footer al final */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .episodios {
+        flex-wrap: wrap; /* Si no cabe en una fila, ajusta las imágenes a varias filas */
+        gap: 30px; /* Reduce el espacio entre imágenes */
+    }
+
+    .principal {
+        align-items: center; /* Ajusta texto al centro en pantallas pequeñas */
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .reproductor {
+        justify-content: center; /* Botón centrado en pantallas pequeñas */
+    }
 }
