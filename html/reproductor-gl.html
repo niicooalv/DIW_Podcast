@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="gl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Diseño Web - Episodio 1</title>
+    <link rel="stylesheet" href="../css/stylesReproductor.css">
+</head>
+<body>
+    <div class="reproductor-central">
+        <a href="javascript:history.back()" class="back-button" aria-label="Voltar">
+            &#8592; Volver
+        </a>
+        <h1>Epsiodio 1: CCS MODERNO</h1>
+        <p>Acompáñanos na estrea do noso podcast sobre CSS moderno</p>
+        <audio id="audioPlayer" src="../audio/audio.mp3"></audio>
+        <div class="controls">
+            <button class="play" id="playButton">▶</button>
+            <input type="range" id="progressBar" value="0" min="0" max="100">
+        </div>
+    </div>
+
+    <script src="../js/player.js"></script>
+</body>
+</html>
