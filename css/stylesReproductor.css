@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+    background: url('../img/diseñoWebDegradado.png') no-repeat center center/cover;
+    transition: background 0.5s ease;
+}
+
+.reproductor-central {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    margin: auto;
+    max-width: 600px;
+}
+
+.reproductor-central h1 {
+    font-size: 2.5rem;
+    color: #ffcc00;
+}
+
+.reproductor-central p {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    color: #ccc;
+}
+
+.reproductor-central audio {
+    width: 100%;
+    margin: 20px 0;
+}
+
+.reproductor-central .controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.reproductor-central .play {
+    background-color: #ffcc00;
+    border: none;
+    color: black;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.reproductor-central input[type="range"] {
+    width: 80%;
+}
